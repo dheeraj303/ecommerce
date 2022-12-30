@@ -1,0 +1,23 @@
+.brand{
+    background-color:#777777;
+}
+.col-6{
+    margin-bottom :10px;
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+}
+.button{
+    /* display: flex; */
+    text-align: center;
+}
+footer{
+    margin-top: 10px;
+    background-color: #56CCF2;
+    padding:10px;
+}
+ul li{
+    display:inline-block;
+    margin-left: 15px;
+    font-size: 25px;
+}
