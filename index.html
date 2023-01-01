@@ -14,6 +14,7 @@
     <title>ECommerce Project</title>
   </head>
   <body>
+    <div id="ecomcontainer">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,84 +63,84 @@
         </div>
         <div class="row">
             <div class="col-6">
-                <div class="card" style="width: 18rem;">
+                <div class="card" id="album1" style="width: 18rem;">
                     <h3 class="text-center">Album 1</h3>
                     <img src="	https://prasadyash2411.github.io/ecom-website/img/Album%201.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       
-                      <span>$12.99</span>
+                      <span>$<span>12.99</span></span>
                     <div style="float:right">
-                     <button class="btn btn-primary">Add to Cart</button>
+                     <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
                   </div>
             </div>
 
             <div class="col-6">
-                <div class="card" style="width: 18rem;">
-                    <h3 class="text-center">Album 1</h3>
+                <div class="card" id="album2"  style="width: 18rem;">
+                    <h3 class="text-center">Album 2</h3>
                     <img src="https://prasadyash2411.github.io/ecom-website/img/Album%202.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       
-                      <span>$12.99</span>
+                      <span>$<span>12.99</span></span>
                     <div style="float:right">
-                     <button class="btn btn-primary">Add to Cart</button>
+                     <button class="add-to-cart btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
                   </div>
             </div>
 
             <div class="col-6">
-                <div class="card" style="width: 18rem;">
-                    <h3 class="text-center">Album 1</h3>
+                <div class="card" id="album3"  style="width: 18rem;">
+                    <h3 class="text-center">Album 3</h3>
                     <img src="https://prasadyash2411.github.io/ecom-website/img/Album%203.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       
-                      <span>$12.99</span>
+                      <span>$<span>12.99</span></span>
                     <div style="float:right">
-                     <button class="btn btn-primary">Add to Cart</button>
+                     <button class="add-to-cart btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
                   </div>
             </div>
 
             <div class="col-6">
-                <div class="card" style="width: 18rem;">
-                    <h3 class="text-center">Album 1</h3>
+                <div class="card" id="album4"  style="width: 18rem;">
+                    <h3 class="text-center">Album 4</h3>
                     <img src="https://prasadyash2411.github.io/ecom-website/img/Album%204.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       
-                      <span>$12.99</span>
+                      <span>$<span>12.99</span></span>
                     <div style="float:right">
-                     <button class="btn btn-primary">Add to Cart</button>
+                     <button class="add-to-cart btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
                   </div>
             </div>
 
             <div class="col-6">
-                <div class="card" style="width: 18rem;">
-                    <h3 class="text-center">Album 1</h3>
+                <div class="card" id="album5"  style="width: 18rem;">
+                    <h3 class="text-center">Album 5</h3>
                     <img src="https://prasadyash2411.github.io/ecom-website/img/Shirt.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       
-                      <span>$12.99</span>
+                      <span>$<span>12.99</span></span>
                     <div style="float:right">
-                     <button class="btn btn-primary">Add to Cart</button>
+                     <button class="add-to-cart btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
                   </div>
             </div>
 
             <div class="col-6">
-                <div class="card" style="width: 18rem;">
-                    <h3 class="text-center">Album 1</h3>
+                <div class="card" id="album6"  style="width: 18rem;">
+                    <h3 class="text-center">Album 6</h3>
                     <img src="https://prasadyash2411.github.io/ecom-website/img/Cofee.png" class="card-img-top" alt="...">
                     <div class="card-body">
                       
-                      <span>$12.99</span>
+                      <span>$<span>12.99</span></span>
                     <div style="float:right">
-                     <button class="btn btn-primary">Add to Cart</button>
+                     <button class="add-to-cart btn btn-primary">Add to Cart</button>
                     </div>
                 </div>
                   </div>
@@ -148,10 +149,28 @@
            
         </div>
         <div class="button">
-            <button class="btn btn-primary">See the Cart</button>
+            <button class="showcart btn btn-primary">See the Cart</button>
         </div>
     </div>
+<!-- cart setion -->
+<div id="cart" class="text-center">
+    <button style="float:right" class="closecart">X</button>
+    <h2>CART</h2>
+   
+    <table id="cart-item">
+        <tr>
+        <th>ITEM</th>
+        <th>PRICE</th>
+        <th>QUANTITY</th>
+        </tr>
 
+    </table>
+    <button style="float:right;margin:10px" >Total $ <span id="total_cart_value">0</span></button>
+    <div class="text-center mt-5">
+        <button class="btn btn-primary">PURCHASE</button>
+    </div>
+</div>
+<div id="container"></div>
     <!-- fotetr section -->
 <footer>
     <div class="container">
@@ -170,6 +189,8 @@
     </div>
     </div>
 </footer>
+</div>
+<script src="index.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
