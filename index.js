@@ -62,3 +62,35 @@ parentcontainer.addEventListener('click',(e)=>{
         // console.log();
     }
 })
+
+window.addEventListener('DOMContentLoaded',getproducts);
+
+async function getproducts(){
+    try{
+        let response=await axios.get('http://localhost:3000/productsfromapi')
+        for (let i = 0; i < response.data.length; i++){
+            viewuser(response.data[i]);
+        }   
+        }
+        catch(err){
+            console.log(err)
+        };
+}
+
+function viewuser(data){
+        const childhtml=`<div class="col-6">
+        <div class="card" id="${data.title}"  style="width: 18rem;">
+            <h3 class="text-center">${data.title}</h3>
+            <img src="${data.imageUrl}" class="card-img-top" alt="...">
+            <div class="card-body">
+              
+              <span>$<span>${data.price}</span></span>
+            <div style="float:right">
+             <button class="add-to-cart btn btn-primary">Add to Cart</button>
+            </div>
+        </div>
+          </div>
+    </div>`;
+    const parentnode=document.querySelector('.products');
+    parentnode.innerHTML=parentnode.innerHTML+childhtml;
+}
