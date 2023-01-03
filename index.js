@@ -17,15 +17,6 @@ parentcontainer.addEventListener('click',async (e)=>{
       
         
 
-        const childcart=`<tr id="cart-${id}">
-        <td><img src="${img_src}" width="20px"></td>
-        <td class="price">${price}</td>
-        <td><button>REMOVE</button></td>
-        </tr>`;
-        cartitems.innerHTML+=childcart;
-        total_cart_price = parseFloat(total_cart_price) + parseFloat(price)
-        total_cart_price = total_cart_price.toFixed(2)
-        document.querySelector('#total_cart_value').innerText = `${total_cart_price}`;
         const container = document.getElementById('container');
         const notification = document.createElement('div');
         notification.classList.add('notification');
@@ -38,6 +29,28 @@ parentcontainer.addEventListener('click',async (e)=>{
     }
 
     if(e.target.classList.contains('showcart')){
+            try{
+            let response=await axios.get('http://localhost:3000/cartapi');
+            for (let i = 0; i < response.data.length; i++){
+                console.log(response.data[i].id);
+                const childcart=`<tr id="cart-${response.data[i].id}">
+                <td><img src="${response.data[i].title}" width="20px"></td>
+                <td class="price">${response.data[i].price}</td>
+                <td class="price">${response.data[i].cartitem.quantity}</td>
+                <td><button>REMOVE</button></td>
+                </tr>`;
+                cartitems.innerHTML+=childcart;
+                const price=e.target.parentNode.parentNode.firstElementChild.firstElementChild.innerText;
+                let total_cart_price=document.querySelector('#total_cart_value').innerText;
+                total_cart_price = parseFloat(total_cart_price) + parseFloat(price)
+                total_cart_price = total_cart_price.toFixed(2)
+                document.querySelector('#total_cart_value').innerText = `${total_cart_price}`;
+            }   
+            }
+            catch(err){
+                console.log(err)
+            };
+   
         document.getElementById('cart').style.display='block';
     }
     if(e.target.classList.contains('closecart')){
@@ -72,7 +85,7 @@ async function getproducts(){
     try{
         let response=await axios.get('http://localhost:3000/productsfromapi')
         for (let i = 0; i < response.data.length; i++){
-            viewuser(response.data[i]);
+            viewproduct(response.data[i]);
         }   
         }
         catch(err){
@@ -80,9 +93,10 @@ async function getproducts(){
         };
 }
 
-function viewuser(data){
+function viewproduct(data){
         const childhtml=`<div class="col-6">
         <div class="card" id="${data.title}"  style="width: 18rem;">
+        <h3 class="text-center">${data.id}</h3>
             <h3 class="text-center">${data.title}</h3>
             <img src="${data.imageUrl}" class="card-img-top" alt="...">
             <div class="card-body">
