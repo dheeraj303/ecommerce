@@ -2,7 +2,7 @@ const cartitems=document.querySelector('#cart-item');
 
 
 const parentcontainer=document.getElementById("ecomcontainer");
-parentcontainer.addEventListener('click',(e)=>{
+parentcontainer.addEventListener('click',async (e)=>{
     
     if(e.target.classList.contains('add-to-cart')){
         const id=e.target.parentNode.parentNode.parentNode.id;
@@ -14,6 +14,9 @@ parentcontainer.addEventListener('click',(e)=>{
             alert('This item is already added to the cart');
             return;
         }
+      
+        
+
         const childcart=`<tr id="cart-${id}">
         <td><img src="${img_src}" width="20px"></td>
         <td class="price">${price}</td>
@@ -86,11 +89,15 @@ function viewuser(data){
               
               <span>$<span>${data.price}</span></span>
             <div style="float:right">
-             <button class="add-to-cart btn btn-primary">Add to Cart</button>
+             <button class="add-to-cart btn btn-primary" onclick="addcart('${data.id}');">Add to Cart</button>
             </div>
         </div>
           </div>
     </div>`;
     const parentnode=document.querySelector('.products');
     parentnode.innerHTML=parentnode.innerHTML+childhtml;
+}
+
+async function addcart(id){
+    await axios.post('http://localhost:3000/cartapi',{productId:id});
 }
